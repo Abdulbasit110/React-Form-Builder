@@ -9,6 +9,7 @@ import { useFormStore } from "../../store/formStore";
 import { FormField } from "./FormField";
 import { Toolbar } from "./Toolbar";
 import { FormPreview } from "./FormPreview";
+import { Github } from "lucide-react";
 
 export const FormBuilder: React.FC = () => {
   const {
@@ -106,13 +107,27 @@ export const FormBuilder: React.FC = () => {
       <div className="flex-1 p-8 overflow-auto">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">{currentTemplate.name}</h1>
-          <button
-            onClick={() => setShowPreview(!showPreview)}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            <Eye className="w-5 h-5" />
-            <span>{showPreview ? "Edit Form" : "Preview Form"}</span>
-          </button>
+          <div className="flex items-center gap-4">
+            {/* GitHub Button */}
+            <a
+              href="https://github.com/Abdulbasit110/React-Form-Builder"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors"
+            >
+              <Github className="w-5 h-5" />
+              <span>GitHub</span>
+            </a>
+
+            {/* Preview Button */}
+            <button
+              onClick={() => setShowPreview(!showPreview)}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              <Eye className="w-5 h-5" />
+              <span>{showPreview ? "Edit Form" : "Preview Form"}</span>
+            </button>
+          </div>
         </div>
 
         {showPreview ? (
