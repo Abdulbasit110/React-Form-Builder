@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Type,
   AlignLeft,
@@ -11,9 +11,9 @@ import {
   Globe,
   Layers,
   Square,
-} from 'lucide-react';
-import { useFormStore } from '../../store/formStore';
-import type { FieldType } from '../../types/form';
+} from "lucide-react";
+import { useFormStore } from "../../store/formStore";
+import type { FieldType } from "../../types/form";
 
 interface ToolbarItem {
   type: FieldType;
@@ -25,17 +25,37 @@ export const Toolbar: React.FC = () => {
   const { addField } = useFormStore();
 
   const tools: ToolbarItem[] = [
-    { type: 'text', icon: <Type className="w-5 h-5" />, label: 'Text Input' },
-    { type: 'textarea', icon: <AlignLeft className="w-5 h-5" />, label: 'Text Area' },
-    { type: 'select', icon: <List className="w-5 h-5" />, label: 'Dropdown' },
-    { type: 'radio', icon: <Radio className="w-5 h-5" />, label: 'Radio Group' },
-    { type: 'file', icon: <File className="w-5 h-5" />, label: 'File Upload' },
-    { type: 'checkbox', icon: <CheckSquare className="w-5 h-5" />, label: 'Checkbox' },
-    { type: 'date', icon: <Calendar className="w-5 h-5" />, label: 'Date Picker' },
-    { type: 'phone', icon: <Phone className="w-5 h-5" />, label: 'Phone Number' },
-    { type: 'country', icon: <Globe className="w-5 h-5" />, label: 'Country' },
-    { type: 'section', icon: <Layers className="w-5 h-5" />, label: 'Section' },
-    { type: 'button', icon: <Square className="w-5 h-5" />, label: 'Button' },
+    { type: "text", icon: <Type className="w-5 h-5" />, label: "Text Input" },
+    {
+      type: "textarea",
+      icon: <AlignLeft className="w-5 h-5" />,
+      label: "Text Area",
+    },
+    { type: "select", icon: <List className="w-5 h-5" />, label: "Dropdown" },
+    {
+      type: "radio",
+      icon: <Radio className="w-5 h-5" />,
+      label: "Radio Group",
+    },
+    { type: "file", icon: <File className="w-5 h-5" />, label: "File Upload" },
+    {
+      type: "checkbox",
+      icon: <CheckSquare className="w-5 h-5" />,
+      label: "Checkbox",
+    },
+    {
+      type: "date",
+      icon: <Calendar className="w-5 h-5" />,
+      label: "Date Picker",
+    },
+    {
+      type: "phone",
+      icon: <Phone className="w-5 h-5" />,
+      label: "Phone Number",
+    },
+    // { type: 'country', icon: <Globe className="w-5 h-5" />, label: 'Country' },
+    { type: "section", icon: <Layers className="w-5 h-5" />, label: "Section" },
+    { type: "button", icon: <Square className="w-5 h-5" />, label: "Button" },
   ];
 
   const handleAddField = (type: FieldType) => {
@@ -44,18 +64,18 @@ export const Toolbar: React.FC = () => {
       label: `New ${type.charAt(0).toUpperCase() + type.slice(1)} Field`,
       name: `${type}_${Date.now()}`,
       required: false,
-      placeholder: type === 'button' ? undefined : `Enter ${type}...`,
+      placeholder: type === "button" ? undefined : `Enter ${type}...`,
     };
 
-    if (type === 'button') {
+    if (type === "button") {
       Object.assign(defaultField, {
-        buttonType: 'submit',
+        buttonType: "submit",
         buttonStyle: {
-          backgroundColor: '#2563eb',
-          textColor: '#ffffff',
-          size: 'medium',
+          backgroundColor: "#2563eb",
+          textColor: "#ffffff",
+          size: "medium",
         },
-        label: 'Submit',
+        label: "Submit",
       });
     }
 
